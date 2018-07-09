@@ -1,11 +1,17 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import Header from '~/components/header'
 
-const LayoutDefault = ({ children }) => (
-  <div className="layout__default">
-    <Header />
-    { children }
-  </div>
-)
+export default class LayoutDefault extends Component {
+  componentDidMount() {
+    this.forceUpdate()
+  }
 
-export default LayoutDefault
+  render({ children }) {
+    return (
+      <div className="layout__default">
+        <Header />
+        { children }
+      </div>
+    )
+  }
+}

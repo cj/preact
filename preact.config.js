@@ -10,4 +10,5 @@ import { resolve } from 'path'
  **/
 export default function (config, env, helpers) {
   config.resolve.alias['~'] = resolve(__dirname, 'src')
+  config.resolve.alias['preact-cli/async-component'] = resolve(__dirname, 'src', 'components', 'async')
 }

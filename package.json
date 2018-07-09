@@ -12,8 +12,13 @@
     "test": "jest ./tests"
   },
   "babel": {
-    "presets": [ 
-      ["preact-cli/babel", { "modules": "commonjs" }]
+    "presets": [
+      [
+        "preact-cli/babel",
+        {
+          "modules": "commonjs"
+        }
+      ]
     ]
   },
   "eslintConfig": {
@@ -53,7 +58,10 @@
     },
     "overrides": [
       {
-        "files": ["*.test.jsx", "*.test.js"],
+        "files": [
+          "*.test.jsx",
+          "*.test.js"
+        ],
         "rules": {
           "react/destructuring-assignment": false,
           "jsx-a11y/anchor-is-valid": false
@@ -70,20 +78,21 @@
     "build/*"
   ],
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
-    "eslint-config-synacor": "^2.0.2",
+    "eslint-config-synacor": "^3.0.1",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.0",
     "eslint-plugin-react": "^7.10.0",
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
-    "jest": "^21.2.1",
+    "jest": "^23.3.0",
     "preact-cli": "^2.1.0",
     "preact-render-spy": "^1.2.1"
   },
   "dependencies": {
     "preact": "^8.2.6",
+    "preact-async-route": "^2.2.1",
     "preact-compat": "^3.17.0",
     "preact-router": "^2.5.7"
   },

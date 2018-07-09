@@ -1,6 +1,6 @@
 {
-  "name": "vodr",
-  "short_name": "vodr",
+  "name": "preact",
+  "short_name": "preact",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

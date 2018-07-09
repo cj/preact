@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import style from './style'
+import * as Layout from '~/components/layout'
 
 export default class Profile extends Component {
   state = {
@@ -8,7 +9,7 @@ export default class Profile extends Component {
   }
 
   // gets called when this route is navigated to
-  componentDidMount() {
+  async componentDidMount() {
     // start a timer for the clock:
     this.timer = setInterval(this.updateTime, 1000)
   }
@@ -30,18 +31,20 @@ export default class Profile extends Component {
   // Note: `user` comes from the URL, courtesy of our router
   render({ user }, { time, count }) {
     return (
-      <div class={style.profile}>
-        <h1>Profile: {user}</h1>
-        <p>This is the user profile for a user named { user }.</p>
+      <Layout.Default>
+        <div class={style.profile}>
+          <h1>Profile: {user}</h1>
+          <p>This is the user profile for a user named { user }.</p>
 
-        <div>Current time: {new Date(time).toLocaleString()}</div>
+          <div>Current time: {new Date(time).toLocaleString()}</div>
 
-        <p>
-          <button type="button" onClick={this.increment}>Click Me</button>
-          {' '}
-          Clicked {count} times.
-        </p>
-      </div>
+          <p>
+            <button type="button" onClick={this.increment}>Click Me</button>
+            {' '}
+            Clicked {count} times.
+          </p>
+        </div>
+      </Layout.Default>
     )
   }
 }
