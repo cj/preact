@@ -1,0 +1,115 @@
+{
+  "private": true,
+  "name": "preact",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact build && preact serve",
+    "dev": "preact watch",
+    "lint": "eslint src",
+    "test": "jest ./tests"
+  },
+  "babel": {
+    "presets": [ 
+      ["preact-cli/babel", { "modules": "commonjs" }]
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "synacor",
+      "airbnb"
+    ],
+    "rules": {
+      "semi": [
+        "error",
+        "never"
+      ],
+      "no-extra-semi": "error",
+      "react/prop-types": false,
+      "react/jsx-one-expression-per-line": false,
+      "react/no-unknown-property": [
+        "error",
+        {
+          "ignore": [
+            "class"
+          ]
+        }
+      ],
+      "react/jsx-no-bind": [
+        "error",
+        {
+          "allowArrowFunctions": true,
+          "allowBind": false,
+          "ignoreRefs": true
+        }
+      ],
+      "react/no-did-update-set-state": "error",
+      "react/react-in-jsx-scope": "error",
+      "import/no-webpack-loader-syntax": false,
+      "import/no-unresolved": false,
+      "react/no-unused-state": false
+    },
+    "overrides": [
+      {
+        "files": ["*.test.jsx", "*.test.js"],
+        "rules": {
+          "react/destructuring-assignment": false,
+          "jsx-a11y/anchor-is-valid": false
+        }
+      }
+    ],
+    "settings": {
+      "react": {
+        "pragma": "h"
+      }
+    }
+  },
+  "eslintIgnore": [
+    "build/*"
+  ],
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-synacor": "^2.0.2",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "identity-obj-proxy": "^3.0.0",
+    "if-env": "^1.0.0",
+    "jest": "^21.2.1",
+    "preact-cli": "^2.1.0",
+    "preact-render-spy": "^1.2.1"
+  },
+  "dependencies": {
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0",
+    "preact-router": "^2.5.7"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFiles": [
+      "<rootDir>/src/tests/__mocks__/browserMocks.js"
+    ],
+    "testURL": "http://localhost:8080",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy",
+      "^./style$": "identity-obj-proxy",
+      "^preact$": "<rootDir>/node_modules/preact/dist/preact.min.js",
+      "^~$": "<rootDir>",
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat",
+      "^create-react-class$": "preact-compat/lib/create-react-class",
+      "^react-addons-css-transition-group$": "preact-css-transition-group"
+    }
+  }
+}
