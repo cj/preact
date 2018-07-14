@@ -9,7 +9,7 @@ export default class Profile extends Component {
   }
 
   // gets called when this route is navigated to
-  async componentDidMount() {
+  componentDidMount() {
     // start a timer for the clock:
     this.timer = setInterval(this.updateTime, 1000)
   }
